@@ -227,7 +227,7 @@ def alle_rezepte(pfade=None):
     if not pfade:
         pfade = [REZEPT_ORDNER]
     dateien = []
-    for p in map(Path, pfade):
+    for p in (Path(x).resolve() for x in pfade):
         dateien += sorted(p.rglob("*.md")) if p.is_dir() else [p]
     return dateien
 
