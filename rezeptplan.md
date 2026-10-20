@@ -1,6 +1,6 @@
 # Rezeptplan: 50 Rezepte
 
-Stand: 20.10.2026 · Ziel-kcal und Protein pro Portion (= meine Portion) · ✦ = TikTok/Instagram-Inspiration
+Stand: 20.10.2026 · **Status: alle 50 Rezepte umgesetzt** · Ziel-kcal und Protein pro Portion (= meine Portion) · ✦ = TikTok/Instagram-Inspiration
 Ordner = Hauptkategorie. Zusätzliche Kategorien kommen als Tags ins Rezept.
 
 Abkürzungen: **HP** High Protein · **S** Schnell (≤ 25 min) · **MP** Meal Prep · **KA** Kalorienarm · **FS** Frühstück & Snacks
@@ -89,3 +89,32 @@ Die 6 kalorienarmen Gerichte (KA) liegen bewusst bei 480–550 kcal, weil die Vo
 | Proteinquellen Hauptgerichte | je max. 10 | Hähnchen 7 · Rind 8 · Pute 8 · Fisch/Garnelen 6 · Ei 1 ✓ |
 
 Kategorien und Zeiten werden nach dem Rechnen mit `naehrwerte.py pruefen` gegen die echten Werte geprüft und ggf. korrigiert.
+
+## Abschluss (Ist-Werte nach Berechnung)
+
+| Gruppe | Anzahl | Ø kcal | Ø Protein | Ø Fett | Ø KH |
+|---|---|---|---|---|---|
+| Frühstück | 15 | 597 | 52 g | 14 g | 62 g |
+| Snacks & Desserts | 5 | 265 | 32 g | 5 g | 21 g |
+| Hauptgerichte | 30 | 693 | 66 g | 17 g | 66 g |
+
+| Kategorie | Soll | Ist |
+|---|---|---|
+| High Protein | möglichst alle | 50 ✓ |
+| Meal Prep | mind. 12 | 23 ✓ |
+| Schnelle Rezepte | mind. 15 | 26 ✓ |
+| Kalorienarm (Hauptgerichte) | mind. 6 | 6 ✓ |
+| Frühstück & Snacks | 20 | 20 ✓ |
+| TikTok/Instagram-Inspiration | mind. 15 | 26 ✓ |
+
+### Beispiel-Tag
+| Mahlzeit | kcal | Protein | Fett | KH |
+|---|---|---|---|---|
+| Apfelstrudel Overnight Oats + 15 g Walnüsse extra | 699 | 47,5 g | 23,9 g | 67,9 g |
+| Teriyaki-Lachs mit Reis und Edamame + 60 g Avocado | 840 | 52,9 g | 38,8 g | 65,2 g |
+| Protein-Shakshuka mit Feta und Fladenbrot | 537 | 48,0 g | 21,9 g | 34,4 g |
+| Snack: 30 g Mandeln + 1 Banane (120 g) | 291 | 8,5 g | 15,8 g | 25,8 g |
+| **Summe** | **2368** | **157 g** | **100 g** | **193 g** |
+| Ziel | 2275 ± 100 | mind. 145 g | 101 ± 15 g | 191 ± 15 g |
+
+**Hinweis Fett:** Die Rezepte sind proteinbetont und eher fettarm (Ø 17 g Fett pro Hauptgericht). Dein Tagesziel von 101 g Fett entspricht 40 % der Kalorien. Im Wochenplan gleiche ich das über Fett-Extras aus den Varianten aus (Nüsse, Avocado, Olivenöl, Käse).
