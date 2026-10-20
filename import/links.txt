@@ -1,0 +1,2 @@
+# Instagram-/TikTok-Links, eine Zeile pro Post.
+# Erledigte Links werden mit "[erledigt]" am Zeilenanfang markiert.
