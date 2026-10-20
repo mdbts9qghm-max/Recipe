@@ -124,7 +124,7 @@ def berechnung_tabelle(zeilen, summe, portion):
         "|---|---|---|---|---|---|",
     ]
     for schluessel, gramm, w in zeilen:
-        out.append(f"| {schluessel} | {zahl(gramm, 0)} g | {w['kcal']:.0f} | {zahl(w['protein'])} "
+        out.append(f"| {schluessel} | {zahl(gramm, 0 if gramm == int(gramm) else 1)} g | {w['kcal']:.0f} | {zahl(w['protein'])} "
                    f"| {zahl(w['fett'])} | {zahl(w['kh'])} |")
     out.append(f"| **Summe (2 Portionen)** | | **{summe['kcal']:.0f}** | **{zahl(summe['protein'])}** "
                f"| **{zahl(summe['fett'])}** | **{zahl(summe['kh'])}** |")
