@@ -1,6 +1,6 @@
 # Rezeptbuch
 
-**30 Rezepte** · Nährwerte pro Portion (= meine Portion) · automatisch erzeugt mit `python3 naehrwerte.py inhaltsverzeichnis`
+**40 Rezepte** · Nährwerte pro Portion (= meine Portion) · automatisch erzeugt mit `python3 naehrwerte.py inhaltsverzeichnis`
 
 ## Frühstück & Snacks (20)
 
@@ -34,43 +34,55 @@
 | [Knusper-Hähnchenschnitzel aus dem Airfryer mit Kartoffelsalat](rezepte/high-protein/airfryer-haehnchenschnitzel-kartoffelsalat.md) | High Protein | Deutsch | – | 40 min | 772 | 75 g | 18 g | 75 g |
 | [Marry Me Chicken mit Skyr und Penne](rezepte/high-protein/marry-me-chicken.md) | High Protein | Italienisch | – | 30 min | 733 | 80 g | 15 g | 66 g |
 
-## Schnelle Rezepte (3)
+## Schnelle Rezepte (7)
 
 | Rezept | Kategorien | Küche | Bewertung | Zeit | kcal | Protein | Fett | KH |
 |---|---|---|---|---|---|---|---|---|
+| [Crispy Pfannen-Wrap mit Putenhack](rezepte/schnell/crispy-pfannen-wrap-putenhack.md) | High Protein · Schnelle Rezepte | Mexikanisch | – | 20 min | 792 | 63 g | 28 g | 67 g |
+| [Erdnuss-Hähnchen-Nudeln](rezepte/schnell/erdnuss-haehnchen-nudeln.md) | High Protein · Schnelle Rezepte | Asiatisch | – | 22 min | 737 | 70 g | 19 g | 68 g |
 | [Garnelen-Pasta in Hüttenkäse-Knoblauch-Sauce](rezepte/schnell/garnelen-pasta-huettenkaese.md) | High Protein · Schnelle Rezepte | Italienisch | – | 20 min | 677 | 63 g | 15 g | 70 g |
 | [Korean Beef Bowl mit Reis](rezepte/schnell/korean-beef-bowl.md) | High Protein · Schnelle Rezepte · Meal Prep | Asiatisch | – | 20 min | 725 | 61 g | 19 g | 76 g |
+| [Pad Kra Pao mit Putenhack und Jasminreis](rezepte/schnell/pad-kra-pao-putenhack.md) | High Protein · Schnelle Rezepte | Asiatisch | – | 20 min | 675 | 53 g | 21 g | 66 g |
 | [Puten-Piccata mit Zitronen-Orzo](rezepte/schnell/puten-piccata-zitronen-orzo.md) | High Protein · Schnelle Rezepte | Italienisch | – | 25 min | 725 | 73 g | 20 g | 63 g |
+| [Teriyaki-Lachs aus dem Airfryer mit Reis und Edamame](rezepte/schnell/teriyaki-lachs-airfryer.md) | High Protein · Schnelle Rezepte | Asiatisch | – | 25 min | 742 | 52 g | 30 g | 64 g |
 
-## Meal Prep (4)
+## Meal Prep (8)
 
 | Rezept | Kategorien | Küche | Bewertung | Zeit | kcal | Protein | Fett | KH |
 |---|---|---|---|---|---|---|---|---|
+| [Butter Chicken mit Skyr und Basmatireis](rezepte/meal-prep/butter-chicken-skyr.md) | High Protein · Meal Prep | Indisch | – | 40 min | 718 | 74 g | 11 g | 78 g |
+| [Chicken Burrito Bowl](rezepte/meal-prep/chicken-burrito-bowl.md) | High Protein · Meal Prep | Mexikanisch | – | 30 min | 702 | 75 g | 11 g | 71 g |
+| [Chili con Carne mit Reis](rezepte/meal-prep/chili-con-carne.md) | High Protein · Meal Prep | Mexikanisch | – | 50 min | 817 | 73 g | 16 g | 86 g |
+| [Keema Matar (Rinderhack-Erbsen-Curry) mit Basmatireis](rezepte/meal-prep/keema-matar.md) | High Protein · Meal Prep | Indisch | – | 35 min | 722 | 66 g | 15 g | 76 g |
 | [Ofen-Gnocchi mit Putenhack-Tomatensauce und Mozzarella](rezepte/meal-prep/ofen-gnocchi-putenhack.md) | High Protein · Meal Prep | Italienisch | – | 35 min | 800 | 62 g | 22 g | 84 g |
 | [Protein-Frikadellen mit Senf-Kartoffelpüree](rezepte/meal-prep/protein-frikadellen-senfpueree.md) | High Protein · Meal Prep | Deutsch | – | 40 min | 773 | 69 g | 24 g | 67 g |
 | [Protein-Lasagne mit Magerquark-Béchamel](rezepte/meal-prep/protein-lasagne.md) | High Protein · Meal Prep | Italienisch | – | 75 min | 809 | 82 g | 22 g | 66 g |
 | [Rindergulasch mit Spätzle](rezepte/meal-prep/rindergulasch-spaetzle.md) | High Protein · Meal Prep | Deutsch | – | 120 min | 767 | 66 g | 23 g | 69 g |
 
-## Kalorienarm (1)
+## Kalorienarm (3)
 
 | Rezept | Kategorien | Küche | Bewertung | Zeit | kcal | Protein | Fett | KH |
 |---|---|---|---|---|---|---|---|---|
+| [Garnelen-Fried-Rice mit Ei](rezepte/kalorienarm/garnelen-fried-rice.md) | High Protein · Schnelle Rezepte · Kalorienarm | Asiatisch | – | 20 min | 537 | 51 g | 13 g | 53 g |
 | [Kabeljau in Senfsauce mit Salzkartoffeln](rezepte/kalorienarm/kabeljau-senfsauce.md) | High Protein · Kalorienarm | Deutsch | – | 30 min | 490 | 53 g | 8 g | 49 g |
+| [Tandoori-Putenspieße aus dem Airfryer mit Minz-Skyr](rezepte/kalorienarm/tandoori-putenspiesse.md) | High Protein · Kalorienarm | Indisch | – | 30 min | 536 | 73 g | 6 g | 45 g |
 
 ## Übersicht
 
 | Kategorie | Anzahl |
 |---|---|
 | Frühstück & Snacks | 20 |
-| High Protein | 30 |
-| Kalorienarm | 1 |
-| Meal Prep | 15 |
-| Schnelle Rezepte | 18 |
+| High Protein | 40 |
+| Kalorienarm | 3 |
+| Meal Prep | 19 |
+| Schnelle Rezepte | 23 |
 
 | Küche | Anzahl |
 |---|---|
 | Amerikanisch | 8 |
-| Asiatisch | 1 |
+| Asiatisch | 5 |
 | Deutsch | 9 |
+| Indisch | 3 |
 | International / Fusion | 6 |
 | Italienisch | 6 |
+| Mexikanisch | 3 |
