@@ -1,0 +1,173 @@
+:root {
+  --bg: #f7f4ef;
+  --karte: #ffffff;
+  --text: #24211d;
+  --leise: #6f685f;
+  --linie: #e4ddd2;
+  --akzent: #c45a32;
+  --akzent-text: #ffffff;
+  --chip: #efe7dc;
+  --gruen: #3d7a4f;
+  --schatten: 0 1px 3px rgba(40, 30, 20, .08);
+  --radius: 14px;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1b1a18;
+    --karte: #262420;
+    --text: #f1ede6;
+    --leise: #a9a196;
+    --linie: #3a3631;
+    --akzent: #e07a4f;
+    --akzent-text: #1b1a18;
+    --chip: #34302a;
+    --gruen: #7cc391;
+    --schatten: none;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.5 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+  padding: env(safe-area-inset-top) 0 calc(72px + env(safe-area-inset-bottom));
+}
+main { max-width: 760px; margin: 0 auto; padding: 12px 16px 24px; }
+h1 { font-size: 1.6rem; line-height: 1.25; margin: 8px 0 10px; }
+h2 { font-size: 1.2rem; margin: 26px 0 8px; }
+h3 { font-size: 1.05rem; margin: 18px 0 6px; }
+a { color: var(--akzent); }
+p { margin: 8px 0; }
+ul, ol { padding-left: 1.3em; margin: 8px 0; }
+li { margin: 4px 0; }
+code { font-size: .9em; background: var(--chip); padding: 1px 4px; border-radius: 4px; }
+
+/* Tab-Leiste */
+.tabs {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 10;
+  display: flex; background: color-mix(in srgb, var(--karte) 92%, transparent);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid var(--linie);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.tabs a {
+  flex: 1; text-align: center; text-decoration: none; color: var(--leise);
+  font-size: .72rem; padding: 7px 0 6px; display: flex; flex-direction: column; align-items: center;
+}
+.tabs a .ico { font-size: 1.3rem; line-height: 1.3; }
+.tabs a.aktiv { color: var(--akzent); font-weight: 600; }
+
+/* Karten & Listen */
+.karte {
+  background: var(--karte); border-radius: var(--radius); box-shadow: var(--schatten);
+  border: 1px solid var(--linie); padding: 14px; margin: 10px 0; display: block;
+  color: inherit; text-decoration: none;
+}
+a.karte:active { transform: scale(.99); }
+.karte .titel { font-weight: 600; font-size: 1.02rem; line-height: 1.3; }
+.karte .unter { color: var(--leise); font-size: .85rem; margin-top: 2px; }
+.label { font-size: .75rem; text-transform: uppercase; letter-spacing: .06em; color: var(--leise); font-weight: 600; }
+.leer { color: var(--leise); text-align: center; padding: 30px 10px; }
+
+.makros { display: flex; gap: 6px; margin-top: 8px; flex-wrap: wrap; }
+.makros span, .makros div {
+  background: var(--chip); border-radius: 8px; padding: 2px 8px; font-size: .8rem; white-space: nowrap;
+}
+.makros.gross { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 16px 0 4px; }
+.makros.gross div { text-align: center; padding: 10px 4px; border-radius: 12px; }
+.makros.gross b { display: block; font-size: 1.35rem; }
+.makros.gross span { background: none; padding: 0; font-size: .75rem; color: var(--leise); }
+
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0; }
+.chip { background: var(--chip); border-radius: 999px; padding: 3px 10px; font-size: .78rem; }
+.chip.kueche { background: transparent; border: 1px solid var(--linie); }
+.meta { color: var(--leise); font-size: .9rem; }
+.meta.klein { font-size: .8rem; }
+.inspiration { font-size: .9rem; }
+
+/* Filter */
+.suche {
+  width: 100%; font-size: 1rem; padding: 11px 14px; border-radius: 12px;
+  border: 1px solid var(--linie); background: var(--karte); color: var(--text);
+}
+.filterzeile { display: flex; gap: 6px; overflow-x: auto; padding: 8px 0 2px; scrollbar-width: none; }
+.filterzeile::-webkit-scrollbar { display: none; }
+.filterzeile button {
+  flex: none; border: 1px solid var(--linie); background: var(--karte); color: var(--text);
+  border-radius: 999px; padding: 6px 12px; font-size: .85rem;
+}
+.filterzeile button.an { background: var(--akzent); color: var(--akzent-text); border-color: var(--akzent); }
+.anzahl { color: var(--leise); font-size: .85rem; margin: 8px 2px; }
+
+/* Buttons */
+button { font: inherit; cursor: pointer; }
+.knoepfe { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 16px 0 10px; }
+.knoepfe button, .km-fuss button, .km-kopf button {
+  border: 1px solid var(--linie); background: var(--karte); color: var(--text);
+  border-radius: 12px; padding: 12px 10px; font-size: .95rem; font-weight: 600;
+}
+button.primaer { background: var(--akzent); border-color: var(--akzent); color: var(--akzent-text); }
+.hinweisbox {
+  background: var(--chip); border-radius: 12px; padding: 10px 12px; font-size: .85rem; margin: 8px 0 4px;
+}
+
+/* Tabellen */
+.tabelle { overflow-x: auto; margin: 8px 0; -webkit-overflow-scrolling: touch; }
+table { border-collapse: collapse; width: 100%; font-size: .9rem; }
+th, td { text-align: left; padding: 7px 8px; border-bottom: 1px solid var(--linie); vertical-align: top; }
+th { font-size: .8rem; color: var(--leise); font-weight: 600; }
+table.zutaten td.menge { white-space: nowrap; font-weight: 600; width: 1%; }
+table.zutaten tr.gruppe td { font-weight: 700; padding-top: 14px; border-bottom: none; }
+.hinweis { color: var(--leise); font-size: .8rem; }
+details { margin: 24px 0; }
+summary { font-weight: 600; cursor: pointer; }
+
+/* Rezeptseite */
+.leiste {
+  position: sticky; top: 0; z-index: 5; background: var(--bg);
+  padding: calc(env(safe-area-inset-top) + 6px) 16px 6px; border-bottom: 1px solid var(--linie);
+}
+.rezeptseite { padding-top: 0; padding-bottom: env(safe-area-inset-bottom); }
+.zurueck { text-decoration: none; font-weight: 600; font-size: 1.05rem; }
+.zubereitung ol li { margin: 8px 0; }
+
+/* Heute */
+.tageskopf { display: flex; justify-content: space-between; align-items: baseline; }
+.mahlzeit { margin: 10px 0; }
+.mahlzeit .inhalt { margin-top: 4px; }
+.mahlzeit .inhalt a { font-weight: 600; text-decoration: none; }
+
+/* Einkauf */
+li.check { list-style: none; margin-left: -1.3em; }
+li.check label { display: flex; gap: 10px; align-items: flex-start; padding: 6px 0; }
+li.check input { width: 22px; height: 22px; flex: none; margin-top: 1px; accent-color: var(--akzent); }
+li.check input:checked + span { text-decoration: line-through; color: var(--leise); }
+.auswahl {
+  width: 100%; font-size: 1rem; padding: 10px; border-radius: 12px;
+  border: 1px solid var(--linie); background: var(--karte); color: var(--text); margin: 6px 0;
+}
+.klein-knopf {
+  border: 1px solid var(--linie); background: var(--karte); color: var(--text);
+  border-radius: 10px; padding: 6px 12px; font-size: .85rem;
+}
+
+/* Kochmodus */
+.kochmodus {
+  position: fixed; inset: 0; z-index: 50; background: var(--bg); display: flex; flex-direction: column;
+  padding: calc(env(safe-area-inset-top) + 12px) 20px calc(env(safe-area-inset-bottom) + 16px);
+}
+.kochmodus[hidden] { display: none; }
+.km-kopf { display: flex; justify-content: space-between; align-items: center; color: var(--leise); }
+.km-teil { margin-top: 18px; color: var(--akzent); font-weight: 700; text-transform: uppercase; letter-spacing: .06em; font-size: .85rem; }
+.km-text { flex: 1; overflow-y: auto; font-size: 1.55rem; line-height: 1.45; padding: 10px 0; }
+.km-fuss { display: grid; grid-template-columns: 1fr 2fr; gap: 10px; }
+.km-fuss button { padding: 18px; font-size: 1.1rem; }
+.km-wach { text-align: center; font-size: .75rem; color: var(--leise); margin-top: 8px; min-height: 1em; }
+
+.toast {
+  position: fixed; left: 50%; bottom: calc(90px + env(safe-area-inset-bottom)); transform: translateX(-50%);
+  background: var(--text); color: var(--bg); padding: 10px 16px; border-radius: 12px; font-size: .9rem; z-index: 60;
+}
