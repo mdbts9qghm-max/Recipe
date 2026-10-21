@@ -3,8 +3,10 @@
 
     python3 build_web.py
 
-Handgeschriebene, feste Dateien in web/: index.html, app.css, app.js, rezept.js,
+Handgeschriebene, feste Dateien in web/: app.css, app.js, rezept.js,
 manifest.webmanifest, icons/. Dieses Skript erzeugt daraus:
+  web/index.html     Startseite (vollständiges Dokument)
+  web/app.html       dieselbe Startseite ohne Dokumentgerüst, für die private claude.ai-Seite
   web/data.js        Rezeptliste, Wochenpläne und Einkaufslisten für die App
   web/r/<name>.html  eine Seite pro Rezept (mit schema.org-JSON-LD für MacroFactor)
 
@@ -274,8 +276,8 @@ def rezeptseite(r):
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{e(r["titel"])} · Rezeptbuch</title>
-<meta name="theme-color" content="#f7f4ef" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#1b1a18" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f3f5f0" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#141916" media="(prefers-color-scheme: dark)">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <link rel="manifest" href="../manifest.webmanifest">
@@ -287,7 +289,7 @@ def rezeptseite(r):
 </head>
 <body class="rezeptseite">
 <header class="leiste">
-  <a class="zurueck" href="../index.html#rezepte" aria-label="Zurück zum Rezeptbuch">‹ Rezepte</a>
+  <a class="zurueck" href="../index.html#rezepte" onclick="if (history.length > 1) {{ history.back(); return false; }}" aria-label="Zurück zum Rezeptbuch">‹ Rezepte</a>
 </header>
 <main>
   <h1>{e(r["titel"])}</h1>
@@ -311,7 +313,7 @@ def rezeptseite(r):
     <button id="macrofactor">Für MacroFactor kopieren</button>
   </div>
   <div class="hinweisbox">
-    <strong>MacroFactor:</strong> Link dieser Seite in MacroFactor importieren oder die kopierte Zutatenliste einfügen.
+    <strong>MacroFactor:</strong> Zutatenliste kopieren und in MacroFactor beim neuen Rezept einfügen (Import per Link geht nur, wenn die Seite öffentlich erreichbar ist).
     Danach das <strong>Gesamtgewicht nach dem Kochen wiegen</strong> und in MacroFactor eintragen, dann kannst du deine Portion nach Gramm loggen.
     {f'<br>Richtwert: {e(r["gewicht"])}' if r["gewicht"] else ""}
   </div>
@@ -424,6 +426,40 @@ def lies_liste(pfad):
     }
 
 
+# ---------------------------------------------------------------- Startseite
+
+APP_KOPF = """<title>Mein Rezeptbuch</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="theme-color" content="#f3f5f0" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#141916" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Rezepte">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="stylesheet" href="app.css">"""
+
+APP_INHALT = """<main id="app"></main>
+<nav class="tabs">
+  <a href="#heute" data-tab="heute"><span class="ico">☀︎</span>Heute</a>
+  <a href="#rezepte" data-tab="rezepte"><span class="ico">☰</span>Rezepte</a>
+  <a href="#woche" data-tab="woche"><span class="ico">▦</span>Woche</a>
+  <a href="#einkauf" data-tab="einkauf"><span class="ico">✓</span>Einkauf</a>
+</nav>
+<script src="data.js"></script>
+<script src="app.js"></script>"""
+
+
+def startseiten():
+    """index.html als vollständiges Dokument (lokal, Webserver) und app.html ohne
+    Dokumentgerüst für die private claude.ai-Seite, die das Gerüst selbst ergänzt."""
+    voll = ('<!doctype html>\n<html lang="de">\n<head>\n<meta charset="utf-8">\n'
+            '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n'
+            + APP_KOPF + "\n</head>\n<body>\n" + APP_INHALT + "\n</body>\n</html>\n")
+    (WEB / "index.html").write_text(voll, encoding="utf-8")
+    (WEB / "app.html").write_text(APP_KOPF + "\n" + APP_INHALT + "\n", encoding="utf-8")
+
+
 # ---------------------------------------------------------------- Build
 
 def main():
@@ -431,6 +467,7 @@ def main():
     rezepte = [lies_rezept(p, db) for p in nw.alle_rezepte()]
     rezepte.sort(key=lambda r: r["titel"])
 
+    startseiten()
     if REZEPT_WEB.exists():
         shutil.rmtree(REZEPT_WEB)
     REZEPT_WEB.mkdir(parents=True)

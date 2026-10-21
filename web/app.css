@@ -1,30 +1,25 @@
+/* Layout: einspaltige Handy-App mit fester Tab-Leiste unten, Rezeptseiten als lange Leseseiten */
 :root {
-  --bg: #f7f4ef;
+  --bg: #f3f5f0;
   --karte: #ffffff;
-  --text: #24211d;
-  --leise: #6f685f;
-  --linie: #e4ddd2;
-  --akzent: #c45a32;
+  --text: #1f2620;
+  --leise: #5f6b62;
+  --linie: #dde3da;
+  --akzent: #2f6b4f;
   --akzent-text: #ffffff;
-  --chip: #efe7dc;
-  --gruen: #3d7a4f;
-  --schatten: 0 1px 3px rgba(40, 30, 20, .08);
+  --chip: #e5ebe2;
+  --schatten: 0 1px 3px rgba(20, 40, 30, .08);
   --radius: 14px;
-  color-scheme: light dark;
 }
 @media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #1b1a18;
-    --karte: #262420;
-    --text: #f1ede6;
-    --leise: #a9a196;
-    --linie: #3a3631;
-    --akzent: #e07a4f;
-    --akzent-text: #1b1a18;
-    --chip: #34302a;
-    --gruen: #7cc391;
-    --schatten: none;
+  :root:not([data-theme="light"]) {
+    --bg: #141916; --karte: #1d2420; --text: #e9efe9; --leise: #9faca2; --linie: #303a33;
+    --akzent: #82c7a0; --akzent-text: #10160f; --chip: #27302a; --schatten: none; color-scheme: dark;
   }
+}
+:root[data-theme="dark"] {
+  --bg: #141916; --karte: #1d2420; --text: #e9efe9; --leise: #9faca2; --linie: #303a33;
+  --akzent: #82c7a0; --akzent-text: #10160f; --chip: #27302a; --schatten: none; color-scheme: dark;
 }
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
@@ -33,9 +28,14 @@ body {
   background: var(--bg);
   color: var(--text);
   font: 16px/1.5 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
-  padding: env(safe-area-inset-top) 0 calc(72px + env(safe-area-inset-bottom));
+  padding-block: 0 calc(72px + env(safe-area-inset-bottom, 0px));
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
 }
-main { max-width: 760px; margin: 0 auto; padding: 12px 16px 24px; }
+main { max-width: 760px; margin: 0 auto; padding-block: 12px 24px; }
+h1, h2 { text-wrap: balance; }
+.makros, table { font-variant-numeric: tabular-nums; }
+:focus-visible { outline: 2px solid var(--akzent); outline-offset: 2px; }
 h1 { font-size: 1.6rem; line-height: 1.25; margin: 8px 0 10px; }
 h2 { font-size: 1.2rem; margin: 26px 0 8px; }
 h3 { font-size: 1.05rem; margin: 18px 0 6px; }
@@ -51,7 +51,8 @@ code { font-size: .9em; background: var(--chip); padding: 1px 4px; border-radius
   display: flex; background: color-mix(in srgb, var(--karte) 92%, transparent);
   backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
   border-top: 1px solid var(--linie);
-  padding-bottom: env(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  padding-left: env(safe-area-inset-left, 0px); padding-right: env(safe-area-inset-right, 0px);
 }
 .tabs a {
   flex: 1; text-align: center; text-decoration: none; color: var(--leise);
@@ -127,10 +128,13 @@ summary { font-weight: 600; cursor: pointer; }
 
 /* Rezeptseite */
 .leiste {
-  position: sticky; top: 0; z-index: 5; background: var(--bg);
-  padding: calc(env(safe-area-inset-top) + 6px) 16px 6px; border-bottom: 1px solid var(--linie);
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg);
+  padding-block: 8px; border-bottom: 1px solid var(--linie);
 }
-.rezeptseite { padding-top: 0; padding-bottom: env(safe-area-inset-bottom); }
+.rezeptseite { padding-block: env(safe-area-inset-top, 0px) env(safe-area-inset-bottom, 0px); }
+.rezeptseite::before {
+  content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg);
+}
 .zurueck { text-decoration: none; font-weight: 600; font-size: 1.05rem; }
 .zubereitung ol li { margin: 8px 0; }
 
@@ -157,7 +161,8 @@ li.check input:checked + span { text-decoration: line-through; color: var(--leis
 /* Kochmodus */
 .kochmodus {
   position: fixed; inset: 0; z-index: 50; background: var(--bg); display: flex; flex-direction: column;
-  padding: calc(env(safe-area-inset-top) + 12px) 20px calc(env(safe-area-inset-bottom) + 16px);
+  padding-block: calc(env(safe-area-inset-top, 0px) + 12px) calc(env(safe-area-inset-bottom, 0px) + 16px);
+  padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px));
 }
 .kochmodus[hidden] { display: none; }
 .km-kopf { display: flex; justify-content: space-between; align-items: center; color: var(--leise); }
@@ -167,6 +172,7 @@ li.check input:checked + span { text-decoration: line-through; color: var(--leis
 .km-fuss button { padding: 18px; font-size: 1.1rem; }
 .km-wach { text-align: center; font-size: .75rem; color: var(--leise); margin-top: 8px; min-height: 1em; }
 
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 .toast {
   position: fixed; left: 50%; bottom: calc(90px + env(safe-area-inset-bottom)); transform: translateX(-50%);
   background: var(--text); color: var(--bg); padding: 10px 16px; border-radius: 12px; font-size: .9rem; z-index: 60;

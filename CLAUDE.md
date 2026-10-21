@@ -302,6 +302,9 @@ Ich will das Rezeptbuch auf dem iPhone über Safari nutzen und zum Home-Bildschi
   - Einkaufsliste zum Abhaken (Haken im Browser speichern)
 - Mobile first, für iPhone optimiert, heller und dunkler Modus, mit Web-App-Manifest und Icon, damit sie über „Teilen → Zum Home-Bildschirm“ wie eine App startet.
 - Zum Veröffentlichen schlag mir **GitHub Pages** vor (kostenlos) und hilf mir beim Einrichten. Die Rezepte enthalten keine sensiblen Daten, aber frag vorher, ob die Seite öffentlich sein darf.
+- **Entscheidung:** Die Seite soll **nicht öffentlich** sein, nur für mich. Sie läuft als private claude.ai-Seite: https://claude.ai/artifact/WwmoN2AfQAS4ej9nNa87Kp
+  - Bei „Web-App aktualisieren“ und nach jeder Änderung: `python3 build_web.py`, dann `web/app.html` mit allen Dateien aus `web/` (app.css, app.js, rezept.js, data.js, manifest.webmanifest, icons/, r/) an genau diese URL neu veröffentlichen, nie als neue Seite.
+  - Weil die Seite privat ist, funktioniert der MacroFactor-Import per Link nicht; dafür gibt es den Button „Für MacroFactor kopieren“.
 
 ### Export für MacroFactor
 MacroFactor kann Rezepte per Link importieren und liest dabei das Standard-Rezeptformat von Websites.
