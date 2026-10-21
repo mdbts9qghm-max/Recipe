@@ -313,7 +313,7 @@ def rezeptseite(r):
     <button id="macrofactor">Für MacroFactor kopieren</button>
   </div>
   <div class="hinweisbox">
-    <strong>MacroFactor:</strong> Zutatenliste kopieren und in MacroFactor beim neuen Rezept einfügen (Import per Link geht nur, wenn die Seite öffentlich erreichbar ist).
+    <strong>MacroFactor:</strong> Zutatenliste kopieren und in MacroFactor beim neuen Rezept einfügen (oder in der Vercel-Version den Link dieser Seite in MacroFactor importieren).
     Danach das <strong>Gesamtgewicht nach dem Kochen wiegen</strong> und in MacroFactor eintragen, dann kannst du deine Portion nach Gramm loggen.
     {f'<br>Richtwert: {e(r["gewicht"])}' if r["gewicht"] else ""}
   </div>

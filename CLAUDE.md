@@ -305,7 +305,7 @@ Ich will das Rezeptbuch auf dem iPhone über Safari nutzen und zum Home-Bildschi
 - **Entscheidung:** Die Seite soll **nicht öffentlich** sein, nur für mich. Sie läuft als private claude.ai-Seite: https://claude.ai/artifact/WwmoN2AfQAS4ej9nNa87Kp
   - Bei „Web-App aktualisieren“ und nach jeder Änderung: `python3 build_web.py`, dann `web/app.html` mit allen Dateien aus `web/` (app.css, app.js, rezept.js, data.js, manifest.webmanifest, icons/, r/) an genau diese URL neu veröffentlichen, nie als neue Seite.
   - Weil die Seite privat ist, funktioniert der MacroFactor-Import per Link nicht; dafür gibt es den Button „Für MacroFactor kopieren“.
-- **Vercel:** Zusätzlich kann die App über Vercel laufen (GitHub-Repo in Vercel importiert). `vercel.json` liefert den Ordner `web/` ohne Build-Schritt aus, `middleware.js` schützt alles mit einem Passwort aus der Vercel-Umgebungsvariable `APP_PASSWORT`. Deshalb `web/` nach `python3 build_web.py` immer mit committen und pushen, sonst sieht Vercel die Änderung nicht.
+- **Vercel:** Zusätzlich kann die App über Vercel laufen (GitHub-Repo in Vercel importiert). `vercel.json` liefert den Ordner `web/` ohne Build-Schritt aus. **Entscheidung: ohne Passwortsperre**, also für jeden mit dem Link erreichbar, aber nicht in Suchmaschinen (`X-Robots-Tag: noindex`). Dort funktioniert auch der MacroFactor-Import per Link. Deshalb `web/` nach `python3 build_web.py` immer mit committen und pushen, sonst sieht Vercel die Änderung nicht.
 
 ### Export für MacroFactor
 MacroFactor kann Rezepte per Link importieren und liest dabei das Standard-Rezeptformat von Websites.
